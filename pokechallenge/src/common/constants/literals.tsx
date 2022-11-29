@@ -1,1 +1,3 @@
-export const HELLO_WORLD: string = "WEB POKEDEX"
+export const HELLO_WORLD: string = "WEB POKEDEX";
+export const PREVIOUS_ARROW: string = "src/assets/icons/previous-location.png";
+export const NEXT_ARROW: string = "src/assets/icons/next-location.png";
