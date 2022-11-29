@@ -1,0 +1,25 @@
+$primary-font: Inter, Avenir, Helvetica, Arial, sans-serif;
+
+* {
+    font-family: $primary-font;
+}
+
+.lg {
+   font-size: large; 
+   font-weight: bolder;
+}
+
+.md {
+    font-size: medium;
+    font-weight: bold;
+}
+
+.sm {
+    font-size: small;
+    font-weight: bold;
+}
+
+.xs {
+    font-size: smaller;
+    font-weight: normal;
+}
