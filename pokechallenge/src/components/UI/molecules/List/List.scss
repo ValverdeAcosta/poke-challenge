@@ -1,4 +1,11 @@
 li {
+    float: left;
+  text-align: center;
+  width: 5em;
+    
+}
+
+.list__container {
     list-style-type: none;
-    margin-right: 80%;
+    padding-bottom: 50px;
 }

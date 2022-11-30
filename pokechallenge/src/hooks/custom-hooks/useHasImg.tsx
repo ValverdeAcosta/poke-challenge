@@ -1,8 +1,9 @@
 import { buttonProps } from "../../common/interfaces/ui-interfaces";
+import { useChangePage } from "./useChangePage";
 
-export function hasImg(props: buttonProps) {
+export function useHasImg(props: buttonProps) {
     if (props.img !== '') {
-        return <img src={props.img} />;
+        return <img src={props.img} onClick={() => useChangePage(props)} />;
     }
-    return <button>{props.message}</button>;
+    return <button onClick={() => useChangePage(props)}>{props.message}</button>;
 }

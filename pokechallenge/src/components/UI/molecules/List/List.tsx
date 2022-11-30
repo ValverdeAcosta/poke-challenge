@@ -4,11 +4,11 @@ import "./List.scss"
 
 const List = (props: listProps) => {
     return (
-        <>
-            {props.elements.map((item) => {
-                return <li key={item}><Text message={item} type={"md"} /></li>;
+        <ul className="list__container">
+            {props.elements?.results.map((item) => {
+                return <li key={item.name} ><Text message={item.name} type={"xs"} /></li>;
             })}
-        </>
+        </ul>
     )
 }
 
