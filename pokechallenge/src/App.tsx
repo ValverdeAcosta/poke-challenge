@@ -13,12 +13,15 @@ function App() {
 
   return (
     <>
-      <div>
-        <Text message={HELLO_WORLD} type={"lg"} />
-        {loading ? <Text message={"is Loading"} type={"md"} /> : <List elements={data} page={page} setPage={setPage} />}
-      </div>
-      <div>
-        <Card data={data} loading={loading} page={page} setPage={setPage} />
+      <Text message={HELLO_WORLD} type={"lg"} />
+      <div className="pokedex_container">
+        <div>
+
+          {loading ? <Text message={"is Loading"} type={"md"} /> : <List elements={data} page={page} setPage={setPage} />}
+        </div>
+        <div>
+          <Card data={data} loading={loading} page={page} setPage={setPage} />
+        </div>
       </div>
     </>
   )

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NEXT_ARROW, PREVIOUS_ARROW } from "../../../../common/constants/literals";
+import { NEXT_ARROW, POKEBALL_LOGO, POKEDEX_ICON, PREVIOUS_ARROW } from "../../../../common/constants/literals";
 import { POKEMON_DATA } from "../../../../common/endpoints/literals";
 import { cardProps, PokeTypes } from "../../../../common/interfaces/ui-interfaces";
 import { useFetch } from "../../../../hooks/custom-hooks/useFetch";
@@ -21,22 +21,24 @@ const Card = (props: cardProps) => {
 
     return (
         <div className="card">
+            <div className="card_logo"><img src={POKEDEX_ICON} width={30} height={30} /></div>
             <div className='card__container'>
                 <Button img={PREVIOUS_ARROW} page={props.page} setPage={props.setPage} />
-                {props.loading ? <Text message={"is Loading"} type={"md"} /> : <div className="sprite__container"><img src={pokemonSprite} /><Text message={currentPokemon} type={"md"} /></div>}
+                {props.loading ? <Text message={"is Loading"} type={"md"} />
+                    : <div className="sprite__container"><img src={pokemonSprite} /><Text message={currentPokemon.charAt(0).toLocaleUpperCase() + currentPokemon.slice(1)} type={"md"} /></div>}
                 <Button img={NEXT_ARROW} page={props.page} setPage={props.setPage} />
 
             </div>
-            <div className="types">
-                {"Type: "}
-                {currentPokemonToWatch?.data?.types?.map((element: PokeTypes) => {
-                    return <div className="types"> <Text message={element.type.name} type={"md"} /></div>
-                })}
 
+            {<Text message={'Type '} type={"xs"} />}
+            <div className="types">
+                {currentPokemonToWatch?.data?.types?.map((element: PokeTypes) => {
+                    return <Text message={element.type.name} type={"sm"} />
+                })}
             </div>
             <div className="sizes">
-                {<Text message={'Height: ' + currentPokemonToWatch?.data?.height} type={"md"} />}
-                {<Text message={'Weight: ' + currentPokemonToWatch?.data?.weight} type={"md"} />}
+                {<Text message={'Height: ' + currentPokemonToWatch?.data?.height} type={"sm"} />}
+                {<Text message={'Weight: ' + currentPokemonToWatch?.data?.weight} type={"sm"} />}
             </div>
         </div>
     )
