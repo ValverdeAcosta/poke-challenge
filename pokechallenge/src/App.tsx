@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.scss'
-import { HELLO_WORLD, NEXT_ARROW, PREVIOUS_ARROW } from './common/constants/literals'
-import Button from './components/UI/atoms/Button/Button'
+import { HELLO_WORLD } from './common/constants/literals'
+import { ALL_POKEMONS } from './common/endpoints/literals'
 import Text from './components/UI/atoms/Text/Text'
 import List from './components/UI/molecules/List/List'
 import Card from './components/UI/organisms/Card/Card'
 import { useFetch } from './hooks/custom-hooks/useFetch'
 
 function App() {
-  const { data, loading } = useFetch("https://pokeapi.co/api/v2/pokemon?limit=151offset=0",);
+  const { data, loading } = useFetch(ALL_POKEMONS);
   const [page, setPage] = useState(0);
 
   return (

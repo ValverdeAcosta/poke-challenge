@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 import { NEXT_ARROW, PREVIOUS_ARROW } from "../../../../common/constants/literals";
+import { POKEMON_DATA } from "../../../../common/endpoints/literals";
+import { cardProps, PokeTypes } from "../../../../common/interfaces/ui-interfaces";
 import { useFetch } from "../../../../hooks/custom-hooks/useFetch";
 import Button from "../../atoms/Button/Button";
 import Text from "../../atoms/Text/Text";
 import './Card.scss';
 
-const Card = (props: any) => {
+const Card = (props: cardProps) => {
 
     const pokemonSelected = props.data?.results[props.page].name || '';
     const [currentPokemon, setCurrentPokemon] = useState(pokemonSelected)
-    const currentPokemonToWatch = useFetch(`https://pokeapi.co/api/v2/pokemon/${pokemonSelected}`);
+    const currentPokemonToWatch = useFetch(`${POKEMON_DATA + pokemonSelected}`);
     const pokemonSprite = currentPokemonToWatch?.data?.sprites?.front_default;
 
     useEffect(() => {
@@ -27,7 +29,7 @@ const Card = (props: any) => {
             </div>
             <div className="types">
                 {"Type: "}
-                {currentPokemonToWatch?.data?.types?.map((element: any) => {
+                {currentPokemonToWatch?.data?.types?.map((element: PokeTypes) => {
                     return <div className="types"> <Text message={element.type.name} type={"md"} /></div>
                 })}
 

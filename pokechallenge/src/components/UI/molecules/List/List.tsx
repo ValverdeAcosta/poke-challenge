@@ -1,8 +1,8 @@
-import { listProps } from "../../../../common/interfaces/ui-interfaces";
+import { listProps, Result } from "../../../../common/interfaces/ui-interfaces";
 import Text from '../../atoms/Text/Text'
 import "./List.scss"
 
-const setNewPage = (item: any, event: any) => {
+const setNewPage = (item: Result, event: React.Dispatch<React.SetStateAction<number>>) => {
     const url = item.url.split("/");
     const endpointNumber = parseInt(url[url.length - 2]);
     event(endpointNumber - 1);

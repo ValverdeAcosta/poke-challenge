@@ -1,3 +1,7 @@
+type stateHandler = {
+    updateState: React.Dispatch<React.SetStateAction<number>>
+}
+
 export interface textProps {
     message: string | undefined,
     type: string
@@ -7,14 +11,21 @@ export interface buttonProps {
     message?: string | undefined,
     img?: string,
     page: number,
-    setPage: React.Dispatch<React.SetStateAction<number>>
+    setPage: stateHandler["updateState"]
 };
 
 export interface listProps {
     elements: Pokedex | undefined | null,
     page: number,
-    setPage: React.Dispatch<React.SetStateAction<number>>
+    setPage: stateHandler["updateState"]
 };
+
+export interface cardProps {
+    data: Pokedex,
+    loading: boolean,
+    page: number,
+    setPage: stateHandler["updateState"]
+}
 
 export interface Pokedex {
     count: number;
@@ -26,4 +37,13 @@ export interface Pokedex {
 export interface Result {
     name: string;
     url: string;
+}
+
+export interface PokeTypes {
+    type: Type
+}
+
+export interface Type {
+    name: string,
+    url: string
 }
