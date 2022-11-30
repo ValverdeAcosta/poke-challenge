@@ -1,8 +1,12 @@
 li {
-    float: left;
+  float: left;
   text-align: center;
   width: 5em;
-    
+  cursor: default;
+}
+
+li:hover {
+  color: firebrick
 }
 
 .list__container {

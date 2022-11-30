@@ -5,7 +5,6 @@ import Button from './components/UI/atoms/Button/Button'
 import Text from './components/UI/atoms/Text/Text'
 import List from './components/UI/molecules/List/List'
 import { useFetch } from './hooks/custom-hooks/useFetch'
-import { pokeModel } from './models/pokeModel'
 
 function App() {
   const { data, loading } = useFetch("https://pokeapi.co/api/v2/pokemon?limit=151offset=0",);
@@ -23,11 +22,11 @@ function App() {
   return (
     <>
       <Text message={HELLO_WORLD} type={"lg"} />
-      {loading ? <Text message={"is Loading"} type={"md"} /> : <List elements={data} />}
+      {loading ? <Text message={"is Loading"} type={"md"} /> : <List elements={data} page={page} setPage={setPage} />}
 
       <div className='card__container'>
         <Button img={PREVIOUS_ARROW} page={page} setPage={setPage} />
-        {loading ? <Text message={"is Loading"} type={"md"} /> : <><img src={pokemonSprite} /><Text message={currentPokemon} type={"md"} /></>}
+        {loading ? <Text message={"is Loading"} type={"md"} /> : <div className="sprite__container"><img src={pokemonSprite} /><Text message={currentPokemon} type={"md"} /></div>}
         <Button img={NEXT_ARROW} page={page} setPage={setPage} />
       </div>
       {JSON.stringify(currentPokemonToWatch?.data) !== undefined ? <Text message={JSON.stringify(currentPokemonToWatch?.data)} type={"xs"} /> : ''}

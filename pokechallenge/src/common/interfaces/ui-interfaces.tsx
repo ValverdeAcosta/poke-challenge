@@ -11,7 +11,9 @@ export interface buttonProps {
 };
 
 export interface listProps {
-    elements: Pokedex | undefined | null
+    elements: Pokedex | undefined | null,
+    page: number,
+    setPage: React.Dispatch<React.SetStateAction<number>>
 };
 
 export interface Pokedex {
