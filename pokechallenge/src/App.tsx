@@ -15,8 +15,8 @@ function App() {
   const pokemonSprite = currentPokemonToWatch?.data?.sprites?.front_default;
 
   useEffect(() => {
-    setCurrentPokemon(data?.results[page].name || '')
-    console.log(pokemonSprite)
+    setCurrentPokemon(pokemonSelected || '')
+
   }, [data, page])
 
   return (
@@ -29,8 +29,13 @@ function App() {
         {loading ? <Text message={"is Loading"} type={"md"} /> : <div className="sprite__container"><img src={pokemonSprite} /><Text message={currentPokemon} type={"md"} /></div>}
         <Button img={NEXT_ARROW} page={page} setPage={setPage} />
       </div>
-      {JSON.stringify(currentPokemonToWatch?.data) !== undefined ? <Text message={JSON.stringify(currentPokemonToWatch?.data)} type={"xs"} /> : ''}
 
+      {currentPokemonToWatch?.data?.types?.map((element: any) => {
+        return <div className="types"><Text message={element.type.name} type={"md"} /></div>
+      })}
+
+      {<Text message={'Height: ' + currentPokemonToWatch?.data?.height} type={"md"} />}
+      {<Text message={'Weight: ' + currentPokemonToWatch?.data?.weight} type={"md"} />}
     </>
   )
 }
