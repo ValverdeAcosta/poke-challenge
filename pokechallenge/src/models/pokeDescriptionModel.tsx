@@ -1,3 +1,5 @@
+//Modelo Mock que podría implementar para el tipado, en el caso de continuar el desarrollo de la aplicación.
+
 export const pokeDescriptionModel = {
     base_happiness: 1,
     capture_rate: 1,

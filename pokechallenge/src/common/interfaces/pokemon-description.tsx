@@ -1,3 +1,4 @@
+//Interfaces a utilizar en el caso de necesidad por tipado para largo plazo.
 
 export interface Root {
     base_happiness: number

@@ -1,9 +1,9 @@
 import { textProps } from "../../../../common/interfaces/ui-interfaces";
 import "./Text.scss"
 
-const Text = (props: textProps) => {
+const Text = ({ message, type }: textProps) => {
     return (
-        <h1 className={props.type} >{props.message}</h1>
+        <p className={type}>{message}</p>
     )
 }
 

@@ -16,7 +16,6 @@ export interface buttonProps {
 
 export interface listProps {
     elements: Pokedex | undefined | null,
-    page: number,
     setPage: stateHandler["updateState"]
 };
 

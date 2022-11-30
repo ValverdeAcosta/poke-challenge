@@ -1,10 +1,10 @@
 import { buttonProps } from "../../common/interfaces/ui-interfaces";
 
-export function useChangePage(props: buttonProps) {
-    if (props.img?.includes("previous") && props.page > 0) {
-        props.setPage(props.page - 1)
+export function useChangePage({ img, page, setPage }: buttonProps) {
+    if (img?.includes("previous") && page > 0) {
+        setPage(page - 1)
     }
-    if (props.img?.includes("next") && props.page < 150) {
-        props.setPage(props.page + 1)
+    if (img?.includes("next") && page < 150) {
+        setPage(page + 1)
     }
 }

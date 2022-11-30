@@ -9,11 +9,11 @@ const setNewPage = (item: Result, event: React.Dispatch<React.SetStateAction<num
     event(endpointNumber - 1);
 }
 
-const List = (props: listProps) => {
+const List = ({ elements, setPage }: listProps) => {
     return (
         <ul className="list__container">
-            {props.elements?.results.map((item) => {
-                return <div><li key={item.name} onClick={() => setNewPage(item, props.setPage)} className="list_element" ><img src={POKEBALL_LOGO} width={20} height={20} /><Text message={item.name.charAt(0).toLocaleUpperCase() + item.name.slice(1)} type={"xs"} /></li></div>;
+            {elements?.results.map((item) => {
+                return <div><li key={item.name} onClick={() => setNewPage(item, setPage)} className="list_element" ><img src={POKEBALL_LOGO} width={20} height={20} /><Text message={item.name.charAt(0).toLocaleUpperCase() + item.name.slice(1)} type={"xs"} /></li></div>;
             })}
         </ul>
     )
